@@ -1,6 +1,7 @@
 import os
 import tinify
 
+#config Tiny PNG develops
 tiny_token = 'YOU TOKEN'
 
 tinify.key = tiny_token
@@ -9,8 +10,11 @@ dir = os.path.abspath(os.curdir)
 files = os.listdir(dir)
 images = filter(lambda x: x.endswith('.png'), files)  #filter png files
 
+#if need compress jpeg use jpg filter
+#images = filter(lambda x: x.endswith('.jpg'), files)
+
 for img in images:
 	name = str(img)
-	print (name)
 	source = tinify.from_file(img)
 	source.to_file(name)
+	print ('File %s compress' % name)
